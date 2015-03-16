@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <attr name="marked" format="boolean" />
+    <attr name="autocheck" format="boolean" />
+    <declare-styleable name="CheckableLinearLayout">
+        <attr name="marked" />
+        <attr name="autocheck" />
+    </declare-styleable>
+
+	<attr name="msToolbarTheme" format="reference" />
+	<attr name="msToolbarThemePopup" format="reference" />
+	<attr name="msColorPrimary" format="reference" />
+ </resources>
