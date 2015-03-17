@@ -32,6 +32,7 @@ public class CheckboxItem extends MaterialSettingsItem {
 	public void setupView(View v) {
 		((TextView) v.findViewById(R.id.material_dialog_item_title)).setText(title);
 		((TextView) v.findViewById(R.id.material_dialog_item_subtitle)).setText(subtitle);
+
 		((CheckableLinearLayout) v).setChecked(checked);
 		((CheckableLinearLayout) v).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
