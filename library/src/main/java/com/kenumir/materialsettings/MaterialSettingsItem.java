@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.kenumir.materialsettings.storage.StorageInterface;
+
 /**
  * Created by Kenumir on 2015-03-16.
  */
@@ -29,6 +31,10 @@ public abstract class MaterialSettingsItem {
 			return v;
 		} else
 			return null;
+	}
+
+	public StorageInterface getStorageInterface() {
+		return mContext.getStorageInterface();
 	}
 
 	public abstract int getViewResource();

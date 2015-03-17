@@ -37,5 +37,9 @@ public abstract class MaterialSettings extends ActionBarActivity {
 			material_settings_content.addView(newView);
 	}
 
+	public StorageInterface getStorageInterface() {
+		return mStorageInterface;
+	}
+
 	public abstract StorageInterface initStorageInterface();
 }
