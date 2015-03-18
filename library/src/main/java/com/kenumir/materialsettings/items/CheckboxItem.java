@@ -15,12 +15,18 @@ import com.kenumir.materialsettings.views.CheckableLinearLayout;
  */
 public class CheckboxItem extends MaterialSettingsItem {
 
+	public static interface OnCheckedChangeListener {
+		public void onCheckedChange(CheckboxItem item, boolean isChecked);
+	}
+
 	private String title, subtitle;
-	private boolean checked;
+	private boolean checked, defaultValue = false;
+	private TextView titleView, subtitleView;
+	private CheckableLinearLayout mCheckableLinearLayout;
+	private OnCheckedChangeListener mOnCheckedChangeListener;
 
 	public CheckboxItem(MaterialSettings ctx, String name) {
 		super(ctx, name);
-		checked = getStorageInterface().load(name, false);
 	}
 
 	@Override
@@ -30,16 +36,38 @@ public class CheckboxItem extends MaterialSettingsItem {
 
 	@Override
 	public void setupView(View v) {
-		((TextView) v.findViewById(R.id.material_dialog_item_title)).setText(title);
-		((TextView) v.findViewById(R.id.material_dialog_item_subtitle)).setText(subtitle);
+		checked = getStorageInterface().load(name, isDefaultValue());
+		mCheckableLinearLayout = (CheckableLinearLayout) v;
+		titleView = (TextView) v.findViewById(R.id.material_dialog_item_title);
+		subtitleView = (TextView) v.findViewById(R.id.material_dialog_item_subtitle);
 
-		((CheckableLinearLayout) v).setChecked(checked);
-		((CheckableLinearLayout) v).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+		updateChecked(checked);
+		updateTitle(title);
+		updateSubTitle(subtitle);
+
+		mCheckableLinearLayout.setChecked(checked);
+		mCheckableLinearLayout.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				mContext.getStorageInterface().save(name, isChecked);
+				if (getOnCheckedChangeListener() != null)
+					getOnCheckedChangeListener().onCheckedChange(CheckboxItem.this, isChecked);
 			}
 		});
+	}
+
+	public CheckboxItem updateTitle(String newTitle) {
+		if (titleView != null)
+			titleView.setText(newTitle);
+		return this;
+	}
+
+	public CheckboxItem updateSubTitle(String newSubTitle) {
+		if (subtitleView != null) {
+			subtitleView.setText(newSubTitle);
+			subtitleView.setVisibility(subtitle != null && subtitle.trim().length() > 0 ? View.VISIBLE : View.GONE);
+		}
+		return this;
 	}
 
 	public String getTitle() {
@@ -61,11 +89,30 @@ public class CheckboxItem extends MaterialSettingsItem {
 	}
 
 	public boolean isChecked() {
-		return checked;
+		return mCheckableLinearLayout.isChecked();
 	}
 
-	public CheckboxItem setChecked(boolean checked) {
-		this.checked = checked;
+	public CheckboxItem updateChecked(boolean val) {
+		mCheckableLinearLayout.setChecked(val);
 		return this;
 	}
+
+	public OnCheckedChangeListener getOnCheckedChangeListener() {
+		return mOnCheckedChangeListener;
+	}
+
+	public CheckboxItem setOnCheckedChangeListener(OnCheckedChangeListener mOnCheckedChangeListener) {
+		this.mOnCheckedChangeListener = mOnCheckedChangeListener;
+		return this;
+	}
+
+	public boolean isDefaultValue() {
+		return defaultValue;
+	}
+
+	public CheckboxItem setDefaultValue(boolean defaultValue) {
+		this.defaultValue = defaultValue;
+		return this;
+	}
+
 }

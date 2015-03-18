@@ -20,6 +20,10 @@ public abstract class MaterialSettingsItem {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	public View initView(ViewGroup parent, int res) {
 		return LayoutInflater.from(mContext).inflate(res, parent, false);
 	}

@@ -15,8 +15,14 @@ import com.kenumir.materialsettings.views.CheckableLinearLayout;
  */
 public class TextItem extends MaterialSettingsItem {
 
+	public static interface OnClickListener {
+		public void onClick(TextItem item);
+	}
+
+
 	private String title, subtitle;
-	private View.OnClickListener onclick;
+	private OnClickListener onclick;
+	private TextView titleView, subtitleView;
 
 	public TextItem(MaterialSettings ctx, String name) {
 		super(ctx, name);
@@ -29,9 +35,33 @@ public class TextItem extends MaterialSettingsItem {
 
 	@Override
 	public void setupView(View v) {
-		((TextView) v.findViewById(R.id.material_dialog_item_title)).setText(title);
-		((TextView) v.findViewById(R.id.material_dialog_item_subtitle)).setText(subtitle);
-		v.setOnClickListener(getOnclick());
+		titleView = (TextView) v.findViewById(R.id.material_dialog_item_title);
+		subtitleView = (TextView) v.findViewById(R.id.material_dialog_item_subtitle);
+
+		updateTitle(title);
+		updateSubTitle(subtitle);
+
+		v.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (getOnclick() != null)
+					getOnclick().onClick(TextItem.this);
+			}
+		});
+	}
+
+	public TextItem updateTitle(String newTitle) {
+		if (titleView != null)
+			titleView.setText(newTitle);
+		return this;
+	}
+
+	public TextItem updateSubTitle(String newSubTitle) {
+		if (subtitleView != null) {
+			subtitleView.setText(newSubTitle);
+			subtitleView.setVisibility(subtitle != null && subtitle.trim().length() > 0 ? View.VISIBLE : View.GONE);
+		}
+		return this;
 	}
 
 	public String getTitle() {
@@ -52,11 +82,11 @@ public class TextItem extends MaterialSettingsItem {
 		return this;
 	}
 
-	public View.OnClickListener getOnclick() {
+	public OnClickListener getOnclick() {
 		return onclick;
 	}
 
-	public TextItem setOnclick(View.OnClickListener onclick) {
+	public TextItem setOnclick(OnClickListener onclick) {
 		this.onclick = onclick;
 		return this;
 	}

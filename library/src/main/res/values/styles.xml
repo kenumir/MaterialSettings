@@ -25,7 +25,7 @@
 		<item name="android:paddingLeft">@dimen/activity_settings_item_padding</item>
 		<item name="android:paddingRight">@dimen/activity_settings_item_padding</item>
 		<item name="android:paddingTop">@dimen/activity_settings_item_padding</item>
-		<item name="android:textColor">@color/primary</item>
+		<item name="android:textColor">@color/accent</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textSize">14sp</item>
 	</style>
@@ -37,6 +37,7 @@
 		<item name="android:orientation">horizontal</item>
 		<item name="android:clickable">true</item>
 		<item name="android:background">@drawable/default_click_bg</item>
+		<item name="android:gravity">center_vertical</item>
 		<item name="autocheck">true</item>
 	</style>
 	<style name="Settings_Item_Text">
