@@ -19,6 +19,14 @@ public class MainActivity extends ActionBarActivity {
 		startActivity(new Intent(this, Settings1Activity.class));
 	}
 
+	public void handleSettings2(View v) {
+		startActivity(new Intent(this, Settings2Activity.class));
+	}
+
+	public void handleSettings3(View v) {
+		startActivity(new Intent(this, Settings3Activity.class));
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

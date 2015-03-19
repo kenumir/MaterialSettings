@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	style="@style/Settings_Item"
+	style="?attr/msItem"
 	android:orientation="vertical">
 
 	<TextView
 		android:id="@+id/material_dialog_item_title"
-		style="@style/Settings_Item_Text"/>
+		style="?attr/msTextStyle"/>
 
 	<TextView
 		android:id="@+id/material_dialog_item_subtitle"
-		style="@style/Settings_Item_SubText"/>
+		style="?attr/msSubTextStyle"/>
 
 </LinearLayout>

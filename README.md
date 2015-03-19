@@ -3,4 +3,6 @@ MaterialSettings - small library to create settings activity
 
 Work in progress...
 
-![Nexus 9 preview](/screens/nex_5_device.png)
+![Default](/screens/theme_default.png)
+![Rec](/screens/theme_red.png)
+![Dark](/screens/theme_dark.png)

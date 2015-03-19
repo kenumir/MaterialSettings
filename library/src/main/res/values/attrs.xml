@@ -10,4 +10,18 @@
 	<attr name="msToolbarTheme" format="reference" />
 	<attr name="msToolbarThemePopup" format="reference" />
 	<attr name="msColorPrimary" format="reference" />
+	<attr name="msColorPrimaryDark" format="reference" />
+	<attr name="msColorAccent" format="reference" />
+	<attr name="msWindowBg" format="reference" />
+	<attr name="msColorHeader" format="reference" />
+	<attr name="msColorTextTitle" format="reference" />
+	<attr name="msColorTextSubTitle" format="reference" />
+	<attr name="msDivider" format="reference" />
+	<attr name="msItem" format="reference" />
+
+	<attr name="msTextStyle" format="reference" />
+	<attr name="msSubTextStyle" format="reference" />
+	<attr name="msHeaderStyle" format="reference" />
+
+
  </resources>

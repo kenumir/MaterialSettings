@@ -5,4 +5,25 @@
 		<!-- Customize your theme here. -->
 	</style>
 
+	<style name="MaterialSettings.Red" parent="MaterialSettingsTheme">
+		<item name="msColorPrimary">@color/redPrimary</item>
+		<item name="msColorPrimaryDark">@color/redPrimaryDark</item>
+		<item name="msColorAccent">@color/redAccent</item>
+		<item name="msColorHeader">@color/redAccent</item>
+	</style>
+
+	<style name="MaterialSettings.Dark" parent="MaterialSettingsThemeDark">
+		<!--
+		<item name="msToolbarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+		<item name="msToolbarThemePopup">@style/ThemeOverlay.AppCompat.Light</item>
+		<item name="msColorPrimary">@color/darkPrimary</item>
+		<item name="msColorPrimaryDark">@color/darkPrimaryDark</item>
+		<item name="msColorAccent">@color/darkAccent</item>
+		<item name="msWindowBg">@color/darkBg</item>
+		<item name="msColorHeader">@color/darkText</item>
+		<item name="msColorTextTitle">@color/darkText</item>
+		<item name="msColorTextSubTitle">@color/darkText</item>
+		-->
+	</style>
+
 </resources>

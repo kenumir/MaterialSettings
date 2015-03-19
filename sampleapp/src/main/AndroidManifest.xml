@@ -21,6 +21,19 @@
             android:label="@string/title_activity_settings1"
 	        android:theme="@style/MaterialSettingsTheme">
         </activity>
+
+	    <activity
+		    android:name=".Settings2Activity"
+		    android:label="@string/title_activity_settings1"
+		    android:theme="@style/MaterialSettings.Red">
+	    </activity>
+
+	    <activity
+		    android:name=".Settings3Activity"
+		    android:label="@string/title_activity_settings1"
+		    android:theme="@style/MaterialSettings.Dark">
+	    </activity>
+
     </application>
 
 </manifest>

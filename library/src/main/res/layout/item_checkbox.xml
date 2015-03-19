@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.kenumir.materialsettings.views.CheckableLinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	style="@style/Settings_Item">
+	style="?attr/msItem">
 
-	<LinearLayout
+	<RelativeLayout
 		android:layout_width="0dp"
 		android:layout_height="match_parent"
 		android:orientation="vertical"
@@ -12,20 +12,22 @@
 
 		<TextView
 			android:id="@+id/material_dialog_item_title"
-			style="@style/Settings_Item_Text"/>
+			style="?attr/msTextStyle"/>
 
 		<TextView
 			android:id="@+id/material_dialog_item_subtitle"
-			style="@style/Settings_Item_SubText"/>
+			style="?attr/msSubTextStyle"
+			android:layout_below="@+id/material_dialog_item_title"/>
 
-	</LinearLayout>
+	</RelativeLayout>
 
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
 		android:gravity="center">
 
-		<CheckBox style="@style/Settings_Item_CheckBox" />
+		<android.support.v7.widget.SwitchCompat
+			style="@style/Settings_Item_CheckBox"/>
 
 	</LinearLayout>
 

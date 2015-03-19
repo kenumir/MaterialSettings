@@ -57,11 +57,9 @@ public class Settings1Activity extends MaterialSettings implements SampleDialog.
 			}
 		}));
 		addItem(new DividerItem(this));
-		addItem(new TextItem(this, "key4").setTitle("Simple text item 3 - no subtitle"));
-		//addItem(new DividerItem(this));
+		addItem(new TextItem(this, "key5").setTitle("Simple text item 3 - no subtitle"));
 		addItem(new HeaderItem(this).setTitle("Same usage with dialogs"));
-
-		addItem(new TextItem(this, "key5").setTitle("Simple message dialog").setSubtitle("Clck to show message and change subtext").setOnclick(new TextItem.OnClickListener() {
+		addItem(new TextItem(this, "key6").setTitle("Simple message dialog").setSubtitle("Clck to show message and change subtext").setOnclick(new TextItem.OnClickListener() {
 			@Override
 			public void onClick(TextItem item) {
 				SampleDialog.newInstance().show(getSupportFragmentManager(), "dialog1");
@@ -76,19 +74,14 @@ public class Settings1Activity extends MaterialSettings implements SampleDialog.
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_settings1, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 
-		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_settings) {
 			return true;
 		}
@@ -98,7 +91,7 @@ public class Settings1Activity extends MaterialSettings implements SampleDialog.
 
 	@Override
 	public void onOkClick() {
-		((TextItem)getItem("key5")).updateSubTitle("Updated");
-		getStorageInterface().save("key5", true);
+		((TextItem)getItem("key6")).updateSubTitle("Updated");
+		getStorageInterface().save("key6", true);
 	}
 }
