@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<dimen name="activity_horizontal_margin">64dp</dimen>
-	<dimen name="navigation_drawer_width">320dp</dimen>
-
 	<dimen name="activity_settings_padding_horizontal">32dp</dimen>
-	<dimen name="activity_settings_padding_vertical">32dp</dimen>
-	<dimen name="activity_settings_item_padding">16dp</dimen>
 </resources>
