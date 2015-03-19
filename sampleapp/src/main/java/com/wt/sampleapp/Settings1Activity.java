@@ -25,8 +25,6 @@ import com.kenumir.materialsettings.storage.StorageInterface;
 
 public class Settings1Activity extends MaterialSettings implements SampleDialog.OnDialogOkClick {
 
-	private final Handler h = new Handler();
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
