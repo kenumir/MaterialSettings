@@ -48,6 +48,13 @@ public class Settings1Activity extends MaterialSettings {
 </style>
 ```
 
+### StorageInterface
+Easiest way to save/load settings
+
+* PreferencesStorageInterface - in shared preferences
+* SimpleStorageInterface - in memory
+* or write own interface to save data (sqlite, content provider or to file)
+
 # Screens
 ![Default](/screens/theme_default.png)
 ![Rec](/screens/theme_red.png)

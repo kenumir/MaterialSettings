@@ -18,6 +18,7 @@ import com.kenumir.materialsettings.MaterialSettings;
 import com.kenumir.materialsettings.items.CheckboxItem;
 import com.kenumir.materialsettings.items.DividerItem;
 import com.kenumir.materialsettings.items.HeaderItem;
+import com.kenumir.materialsettings.items.SwitcherItem;
 import com.kenumir.materialsettings.items.TextItem;
 import com.kenumir.materialsettings.storage.PreferencesStorageInterface;
 import com.kenumir.materialsettings.storage.SimpleStorageInterface;
@@ -36,6 +37,10 @@ public class Settings1Activity extends MaterialSettings implements SampleDialog.
 				Toast.makeText(Settings1Activity.this, "CHECKED: " + isChecked, Toast.LENGTH_SHORT).show();
 			}
 		}));
+		addItem(new DividerItem(this));
+		addItem(new SwitcherItem(this, "key1a").setTitle("Switcher item 3 - no subtitle"));
+		addItem(new DividerItem(this));
+		addItem(new SwitcherItem(this, "key1b").setTitle("Switcher item 3").setSubtitle("With subtitle"));
 		addItem(new DividerItem(this));
 		addItem(new CheckboxItem(this, "key2").setTitle("Checkbox item 2").setSubtitle("Subtitle text 2 with long text and more txt and more and more ;-)").setDefaultValue(true));
 		addItem(new DividerItem(this));
