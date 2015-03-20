@@ -56,6 +56,6 @@ Easiest way to save/load settings
 * or write own interface to save data (sqlite, content provider or to file)
 
 # Screens
-![Default](/screens/theme_default.png)
-![Rec](/screens/theme_red.png)
-![Dark](/screens/theme_dark.png)
+![Default](/screens/theme_default2.png)
+![Rec](/screens/theme_red2.png)
+![Dark](/screens/theme_dark2.png)
