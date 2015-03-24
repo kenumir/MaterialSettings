@@ -1,14 +1,11 @@
 package com.kenumir.materialsettings.items;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.kenumir.materialsettings.MaterialSettings;
 import com.kenumir.materialsettings.MaterialSettingsItem;
 import com.kenumir.materialsettings.R;
-import com.kenumir.materialsettings.views.CheckableLinearLayout;
 
 /**
  * Created by Kenumir on 2015-03-16.
@@ -24,7 +21,7 @@ public class TextItem extends MaterialSettingsItem {
 	private OnClickListener onclick;
 	private TextView titleView, subtitleView;
 
-	public TextItem(MaterialSettings ctx, String name) {
+	public TextItem(Context ctx, String name) {
 		super(ctx, name);
 	}
 
@@ -48,6 +45,11 @@ public class TextItem extends MaterialSettingsItem {
 					getOnclick().onClick(TextItem.this);
 			}
 		});
+	}
+
+	@Override
+	public void save() {
+		// NOP
 	}
 
 	public TextItem updateTitle(String newTitle) {

@@ -19,21 +19,28 @@
         <activity
             android:name=".Settings1Activity"
             android:label="@string/title_activity_settings1"
+            android:theme="@style/MaterialSettingsTheme" >
+        </activity>
+        <activity
+            android:name=".Settings2Activity"
+            android:label="@string/title_activity_settings1"
+            android:theme="@style/MaterialSettings.Red" >
+        </activity>
+        <activity
+            android:name=".Settings3Activity"
+            android:label="@string/title_activity_settings1"
+            android:theme="@style/MaterialSettings.Dark" >
+        </activity>
+        <activity
+            android:name=".Settings4Activity"
+            android:label="@string/title_activity_settings1"
+            android:theme="@style/MaterialSettingsTheme" >
+        </activity>
+        <activity
+            android:name=".InflatingViewsActivity"
+            android:label="@string/title_activity_inflating_views"
 	        android:theme="@style/MaterialSettingsTheme">
         </activity>
-
-	    <activity
-		    android:name=".Settings2Activity"
-		    android:label="@string/title_activity_settings1"
-		    android:theme="@style/MaterialSettings.Red">
-	    </activity>
-
-	    <activity
-		    android:name=".Settings3Activity"
-		    android:label="@string/title_activity_settings1"
-		    android:theme="@style/MaterialSettings.Dark">
-	    </activity>
-
     </application>
 
 </manifest>

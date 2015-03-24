@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-import com.kenumir.materialsettings.MaterialSettings;
 import com.kenumir.materialsettings.MaterialSettingsItem;
 import com.kenumir.materialsettings.R;
 
@@ -15,7 +14,7 @@ public class HeaderItem extends MaterialSettingsItem {
 
 	private String title;
 
-	public HeaderItem(MaterialSettings ctx) {
+	public HeaderItem(Context ctx) {
 		super(ctx, null);
 	}
 
@@ -27,6 +26,11 @@ public class HeaderItem extends MaterialSettingsItem {
 	@Override
 	public void setupView(View v) {
 		((TextView) v).setText(title);
+	}
+
+	@Override
+	public void save() {
+		// NOP
 	}
 
 	public String getTitle() {

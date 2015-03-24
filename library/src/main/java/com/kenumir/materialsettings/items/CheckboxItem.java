@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.kenumir.materialsettings.MaterialSettings;
 import com.kenumir.materialsettings.MaterialSettingsItem;
 import com.kenumir.materialsettings.R;
 import com.kenumir.materialsettings.views.CheckableLinearLayout;
@@ -25,7 +24,7 @@ public class CheckboxItem extends MaterialSettingsItem {
 	private CheckableLinearLayout mCheckableLinearLayout;
 	private OnCheckedChangeListener mOnCheckedChangeListener;
 
-	public CheckboxItem(MaterialSettings ctx, String name) {
+	public CheckboxItem(Context ctx, String name) {
 		super(ctx, name);
 	}
 
@@ -36,7 +35,8 @@ public class CheckboxItem extends MaterialSettingsItem {
 
 	@Override
 	public void setupView(View v) {
-		checked = getStorageInterface().load(name, isDefaultValue());
+
+		checked = getStorageInterface() != null ? getStorageInterface().load(name, isDefaultValue()) : isDefaultValue();
 		mCheckableLinearLayout = (CheckableLinearLayout) v;
 		titleView = (TextView) v.findViewById(R.id.material_dialog_item_title);
 		subtitleView = (TextView) v.findViewById(R.id.material_dialog_item_subtitle);
@@ -49,11 +49,17 @@ public class CheckboxItem extends MaterialSettingsItem {
 		mCheckableLinearLayout.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				mContext.getStorageInterface().save(name, isChecked);
+				save();
 				if (getOnCheckedChangeListener() != null)
 					getOnCheckedChangeListener().onCheckedChange(CheckboxItem.this, isChecked);
 			}
 		});
+	}
+
+	@Override
+	public void save() {
+		if (getStorageInterface() != null)
+			getStorageInterface().save(name, isChecked());
 	}
 
 	public CheckboxItem updateTitle(String newTitle) {
@@ -89,6 +95,7 @@ public class CheckboxItem extends MaterialSettingsItem {
 	}
 
 	public boolean isChecked() {
+		//Log.d("tests", "C: " + name + "=" + mCheckableLinearLayout.isChecked());
 		return mCheckableLinearLayout.isChecked();
 	}
 

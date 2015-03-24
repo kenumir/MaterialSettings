@@ -1,44 +1,38 @@
 package com.wt.sampleapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.view.ViewGroup;
 
-public class MainActivity extends ActionBarActivity {
+import com.kenumir.materialsettings.items.SwitcherItem;
+import com.kenumir.materialsettings.items.TextItem;
+
+public class InflatingViewsActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-	}
+		setContentView(R.layout.activity_inflating_views);
 
-	public void handleSettings1(View v) {
-		startActivity(new Intent(this, Settings1Activity.class));
-	}
+		ViewGroup content = (ViewGroup) findViewById(R.id.content);
 
-	public void handleSettings2(View v) {
-		startActivity(new Intent(this, Settings2Activity.class));
-	}
+		SwitcherItem item = new SwitcherItem(getBaseContext(), "key1");
+		item.setTitle("Title of item ");
+		item.setSubtitle("Subtitle text");
+		content.addView(item.getView(content));
 
-	public void handleSettings3(View v) {
-		startActivity(new Intent(this, Settings3Activity.class));
-	}
-
-	public void handleSettings4(View v) {
-		startActivity(new Intent(this, Settings4Activity.class));
-	}
-
-	public void handleSettings5(View v) {
-		startActivity(new Intent(this, InflatingViewsActivity.class));
+		TextItem item2 = new TextItem(getBaseContext(), "key2");
+		item2.setTitle("Title of item - second line");
+		item2.setSubtitle("Subtitle text");
+		content.addView(item2.getView(content));
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main, menu);
+		getMenuInflater().inflate(R.menu.menu_inflating_views, menu);
 		return true;
 	}
 

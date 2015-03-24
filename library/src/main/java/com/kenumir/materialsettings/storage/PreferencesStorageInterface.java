@@ -3,6 +3,8 @@ package com.kenumir.materialsettings.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Map;
+
 /**
  * Created by Kenumir on 2015-03-18.
  */
@@ -15,12 +17,12 @@ public class PreferencesStorageInterface extends StorageInterface  {
 	}
 
 	@Override
-	public void save(String key, boolean value) {
+	public void save(String key, Boolean value) {
 		prefs.edit().putBoolean(key, value).apply();
 	}
 
 	@Override
-	public boolean load(String key, boolean defaultValue) {
+	public boolean load(String key, Boolean defaultValue) {
 		return prefs.getBoolean(key, defaultValue);
 	}
 
@@ -62,5 +64,11 @@ public class PreferencesStorageInterface extends StorageInterface  {
 	@Override
 	public Long load(String key, Long defaultValue) {
 		return prefs.getLong(key, defaultValue);
+	}
+
+	@Override
+	public Map<String, ?> getAll() {
+
+		return prefs.getAll();
 	}
 }

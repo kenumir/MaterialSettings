@@ -83,7 +83,7 @@ public class CheckableLinearLayout extends LinearLayout implements Checkable {
         
         refreshDrawableState();
     
-        //Propagate to childs
+        //Propagate to child's
         final int count = getChildCount();
         for (int i = 0; i < count; i++) {
             final View child = getChildAt(i);

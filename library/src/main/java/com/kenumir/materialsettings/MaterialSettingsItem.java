@@ -12,11 +12,14 @@ import com.kenumir.materialsettings.storage.StorageInterface;
  */
 public abstract class MaterialSettingsItem {
 
-	protected MaterialSettings mContext;
+	protected Context mContext;
+	protected MaterialSettings mMaterialSettings;
 	protected String name;
 
-	public MaterialSettingsItem(MaterialSettings ctx, String name) {
+	public MaterialSettingsItem(Context ctx, String name) {
 		this.mContext = ctx;
+		if (ctx instanceof MaterialSettings)
+			this.mMaterialSettings = (MaterialSettings) ctx;
 		this.name = name;
 	}
 
@@ -37,11 +40,19 @@ public abstract class MaterialSettingsItem {
 			return null;
 	}
 
+	public void setMaterialSettings(MaterialSettings m) {
+		mMaterialSettings = m;
+	}
+
 	public StorageInterface getStorageInterface() {
-		return mContext.getStorageInterface();
+		if (mMaterialSettings != null)
+			return mMaterialSettings.getStorageInterface();
+		else
+			return null;
 	}
 
 	public abstract int getViewResource();
 	public abstract void setupView(View v);
+	public abstract void save();
 
 }

@@ -3,7 +3,6 @@ package com.kenumir.materialsettings.items;
 import android.content.Context;
 import android.view.View;
 
-import com.kenumir.materialsettings.MaterialSettings;
 import com.kenumir.materialsettings.MaterialSettingsItem;
 import com.kenumir.materialsettings.R;
 
@@ -12,7 +11,7 @@ import com.kenumir.materialsettings.R;
  */
 public class DividerItem extends MaterialSettingsItem {
 
-	public DividerItem(MaterialSettings ctx) {
+	public DividerItem(Context ctx) {
 		super(ctx, null);
 	}
 
@@ -24,5 +23,10 @@ public class DividerItem extends MaterialSettingsItem {
 	@Override
 	public void setupView(View v) {
 
+	}
+
+	@Override
+	public void save() {
+		// NOP
 	}
 }

@@ -1,13 +1,10 @@
 package com.wt.sampleapp;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.ResultReceiver;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 
 /**
  * Created by Kenumir on 2015-03-18.

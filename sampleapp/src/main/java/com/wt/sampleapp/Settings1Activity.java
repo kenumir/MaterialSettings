@@ -1,17 +1,8 @@
 package com.wt.sampleapp;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.os.Handler;
-import android.os.ResultReceiver;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.kenumir.materialsettings.MaterialSettings;
@@ -21,7 +12,6 @@ import com.kenumir.materialsettings.items.HeaderItem;
 import com.kenumir.materialsettings.items.SwitcherItem;
 import com.kenumir.materialsettings.items.TextItem;
 import com.kenumir.materialsettings.storage.PreferencesStorageInterface;
-import com.kenumir.materialsettings.storage.SimpleStorageInterface;
 import com.kenumir.materialsettings.storage.StorageInterface;
 
 public class Settings1Activity extends MaterialSettings implements SampleDialog.OnDialogOkClick {
@@ -44,7 +34,7 @@ public class Settings1Activity extends MaterialSettings implements SampleDialog.
 		addItem(new DividerItem(this));
 		addItem(new CheckboxItem(this, "key2").setTitle("Checkbox item 2").setSubtitle("Subtitle text 2 with long text and more txt and more and more ;-)").setDefaultValue(true));
 		addItem(new DividerItem(this));
-		addItem(new CheckboxItem(this, "key1").setTitle("Checkbox item 3 - no subtitle"));
+		addItem(new CheckboxItem(this, "key1c").setTitle("Checkbox item 3 - no subtitle"));
 		addItem(new DividerItem(this));
 		addItem(new TextItem(this, "key3").setTitle("Simple text item 1").setSubtitle("Subtitle of simple text item 1").setOnclick(new TextItem.OnClickListener() {
 			@Override
