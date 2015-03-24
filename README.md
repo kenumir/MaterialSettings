@@ -58,6 +58,35 @@ Easiest way to save/load settings
 * SimpleStorageInterface - in memory
 * or write own interface to save data (sqlite, content provider or to file)
 
+Interface:
+
+```java
+
+    public abstract class StorageInterface {
+        public StorageInterface() {}
+
+        public abstract void save(String key, Boolean value);
+        public abstract boolean load(String key, Boolean defaultValue);
+
+        public abstract void save(String key, String value);
+        public abstract String load(String key, String defaultValue);
+
+        public abstract void save(String key, Integer value);
+        public abstract Integer load(String key, Integer defaultValue);
+
+        public abstract void save(String key, Float value);
+        public abstract Float load(String key, Float defaultValue);
+
+        public abstract void save(String key, Long value);
+        public abstract Long load(String key, Long defaultValue);
+
+        public abstract Map<String, ?> getAll();
+    }
+
+```
+
+Extend and write own methods.
+
 # Screens
 ![Default](/screens/theme_default2.png)
 ![Rec](/screens/theme_red2.png)

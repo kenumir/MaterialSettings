@@ -51,6 +51,10 @@ public class Settings1Activity extends MaterialSettings implements SampleDialog.
 		}));
 		addItem(new DividerItem(this));
 		addItem(new TextItem(this, "key5").setTitle("Simple text item 3 - no subtitle"));
+		addItem(new DividerItem(this));
+		addItem(new TextItem(this, "key5a").setTitle("Simple text item with icon - no subtitle").setIcon(R.drawable.ic_check_circle_grey600_24dp));
+		addItem(new DividerItem(this));
+		addItem(new TextItem(this, "key5b").setTitle("Simple text item with icon - no subtitle").setSubtitle("Subtitle of item with icon").setIcon(R.drawable.ic_check_circle_grey600_24dp));
 		addItem(new HeaderItem(this).setTitle("Same usage with dialogs"));
 		addItem(new TextItem(this, "key6").setTitle("Simple message dialog").setSubtitle("Clck to show message and change subtext").setOnclick(new TextItem.OnClickListener() {
 			@Override
