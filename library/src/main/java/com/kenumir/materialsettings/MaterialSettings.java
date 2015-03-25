@@ -45,7 +45,7 @@ public abstract class MaterialSettings extends ActionBarActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_settings);
+		setContentView(R.layout.activity_material_settings);
 
 		items = new HashMap<>();
 

@@ -6,4 +6,5 @@
 	<string name="title_activity_settings1">Settings1Activity</string>
 	<string name="title_activity_test">TestActivity</string>
 	<string name="title_activity_inflating_views">InflatingViewsActivity</string>
+	<string name="title_activity_settings">SettingsActivity</string>
 </resources>

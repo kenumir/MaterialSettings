@@ -39,7 +39,7 @@
         <activity
             android:name=".InflatingViewsActivity"
             android:label="@string/title_activity_inflating_views"
-	        android:theme="@style/MaterialSettingsTheme">
+            android:theme="@style/MaterialSettingsTheme" >
         </activity>
     </application>
 

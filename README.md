@@ -25,6 +25,10 @@ public class Settings1Activity extends MaterialSettings {
 }
 ```
 
+#### Important
+If in your app has layout named "activity_material_settings.xml" 
+will occur error "NoSuchFieldError: No static field" - [issue #2](https://github.com/kenumir/MaterialSettings/issues/2)
+
 ### Style attrs
 * msToolbarTheme
 * msToolbarThemePopup
