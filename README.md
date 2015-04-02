@@ -4,6 +4,24 @@ MaterialSettings - small library to create settings activity
 [![Android app on Google Play](https://developer.android.com/images/brand/en_app_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=com.wt.sampleapp)
 
 
+### Add to project
+
+Repo:
+```
+repositories {
+	maven {
+		url "https://jitpack.io"
+	}
+}
+```
+
+Dependences:
+```
+dependencies {
+	compile 'com.github.kenumir:MaterialSettings:v.1.2.2'
+}
+```
+
 ###Simple code:
 ```java
 public class Settings1Activity extends MaterialSettings {
