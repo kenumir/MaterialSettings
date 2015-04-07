@@ -18,6 +18,7 @@ public class InflatingViewsActivity extends ActionBarActivity {
 
 		ViewGroup content = (ViewGroup) findViewById(R.id.content);
 
+		/*
 		SwitcherItem item = new SwitcherItem(getBaseContext(), "key1");
 		item.setTitle("Title of item ");
 		item.setSubtitle("Subtitle text");
@@ -27,6 +28,7 @@ public class InflatingViewsActivity extends ActionBarActivity {
 		item2.setTitle("Title of item - second line");
 		item2.setSubtitle("Subtitle text");
 		content.addView(item2.getView(content));
+		*/
 	}
 
 	@Override

@@ -12,14 +12,14 @@ import com.kenumir.materialsettings.storage.StorageInterface;
  */
 public abstract class MaterialSettingsItem {
 
-	protected Context mContext;
-	protected MaterialSettings mMaterialSettings;
+	protected MaterialSettingsFragment mContext;
+	protected MaterialSettingsFragment mMaterialSettings;
 	protected String name;
 
-	public MaterialSettingsItem(Context ctx, String name) {
+	public MaterialSettingsItem(MaterialSettingsFragment ctx, String name) {
 		this.mContext = ctx;
-		if (ctx instanceof MaterialSettings)
-			this.mMaterialSettings = (MaterialSettings) ctx;
+		//if (ctx instanceof MaterialSettingsFragment)
+		//	this.mMaterialSettings = (MaterialSettingsFragment) ctx;
 		this.name = name;
 	}
 
@@ -28,7 +28,7 @@ public abstract class MaterialSettingsItem {
 	}
 
 	public View initView(ViewGroup parent, int res) {
-		return LayoutInflater.from(mContext).inflate(res, parent, false);
+		return LayoutInflater.from(mContext.getActivity()).inflate(res, parent, false);
 	}
 
 	public View getView(ViewGroup parent) {
@@ -40,7 +40,7 @@ public abstract class MaterialSettingsItem {
 			return null;
 	}
 
-	public void setMaterialSettings(MaterialSettings m) {
+	public void setMaterialSettings(MaterialSettingsFragment m) {
 		mMaterialSettings = m;
 	}
 

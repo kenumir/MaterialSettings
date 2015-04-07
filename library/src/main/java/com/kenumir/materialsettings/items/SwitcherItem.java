@@ -2,6 +2,7 @@ package com.kenumir.materialsettings.items;
 
 import android.content.Context;
 
+import com.kenumir.materialsettings.MaterialSettingsFragment;
 import com.kenumir.materialsettings.R;
 
 /**
@@ -9,7 +10,7 @@ import com.kenumir.materialsettings.R;
  */
 public class SwitcherItem extends CheckboxItem {
 
-	public SwitcherItem(Context ctx, String name) {
+	public SwitcherItem(MaterialSettingsFragment ctx, String name) {
 		super(ctx, name);
 	}
 

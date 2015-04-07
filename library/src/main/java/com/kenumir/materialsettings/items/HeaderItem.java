@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
+import com.kenumir.materialsettings.MaterialSettingsFragment;
 import com.kenumir.materialsettings.MaterialSettingsItem;
 import com.kenumir.materialsettings.R;
 
@@ -14,7 +15,7 @@ public class HeaderItem extends MaterialSettingsItem {
 
 	private String title;
 
-	public HeaderItem(Context ctx) {
+	public HeaderItem(MaterialSettingsFragment ctx) {
 		super(ctx, null);
 	}
 

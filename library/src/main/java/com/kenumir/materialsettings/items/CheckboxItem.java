@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import com.kenumir.materialsettings.MaterialSettingsFragment;
 import com.kenumir.materialsettings.MaterialSettingsItem;
 import com.kenumir.materialsettings.R;
 import com.kenumir.materialsettings.views.CheckableLinearLayout;
@@ -24,7 +25,7 @@ public class CheckboxItem extends MaterialSettingsItem {
 	private CheckableLinearLayout mCheckableLinearLayout;
 	private OnCheckedChangeListener mOnCheckedChangeListener;
 
-	public CheckboxItem(Context ctx, String name) {
+	public CheckboxItem(MaterialSettingsFragment ctx, String name) {
 		super(ctx, name);
 	}
 

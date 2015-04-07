@@ -1,9 +1,12 @@
 package com.kenumir.materialsettings;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
@@ -16,7 +19,7 @@ import java.util.Map;
 /**
  * Created by Kenumir on 2015-03-15.
  */
-public abstract class MaterialSettings extends ActionBarActivity {
+public abstract class MaterialSettingsFragment extends Fragment {
 
 	public static enum ContentFrames {
 		FRAME_TOP(0),
@@ -42,24 +45,31 @@ public abstract class MaterialSettings extends ActionBarActivity {
 	private HashMap<String, MaterialSettingsItem> items;
 	private FrameLayout[] frames;
 
+	public MaterialSettingsFragment() {
+		//
+	}
+
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_material_settings);
+	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		View root = inflater.inflate(R.layout.fragment_material_settings, container, false);
 
 		items = new HashMap<>();
 
-		toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-
-		material_settings_content = (LinearLayout) findViewById(R.id.material_settings_content);
+		material_settings_content = (LinearLayout) root.findViewById(R.id.material_settings_content);
 		frames = new FrameLayout[4];
-		frames[0] = (FrameLayout) findViewById(R.id.material_settings_top_frame);
-		frames[1] = (FrameLayout) findViewById(R.id.material_settings_top_frame_inside);
-		frames[2] = (FrameLayout) findViewById(R.id.material_settings_bottom_frame_inside);
-		frames[3] = (FrameLayout) findViewById(R.id.material_settings_bottom_frame);
+		frames[0] = (FrameLayout) root.findViewById(R.id.material_settings_top_frame);
+		frames[1] = (FrameLayout) root.findViewById(R.id.material_settings_top_frame_inside);
+		frames[2] = (FrameLayout) root.findViewById(R.id.material_settings_bottom_frame_inside);
+		frames[3] = (FrameLayout) root.findViewById(R.id.material_settings_bottom_frame);
 
 		mStorageInterface = initStorageInterface();
+
+		return root;
+	}
+
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
 
 		if (savedInstanceState != null) {
 			for(String key : savedInstanceState.keySet()) {
@@ -86,7 +96,7 @@ public abstract class MaterialSettings extends ActionBarActivity {
 	}
 
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
+	public void onSaveInstanceState(Bundle outState) {
 		StorageInterface si = getStorageInterface();
 		if (si instanceof SimpleStorageInterface) {
 			saveAll();

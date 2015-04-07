@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kenumir.materialsettings.MaterialSettingsFragment;
 import com.kenumir.materialsettings.MaterialSettingsItem;
 import com.kenumir.materialsettings.R;
 
@@ -24,7 +25,7 @@ public class TextItem extends MaterialSettingsItem {
 	private Drawable icon;
 	private int iconRes = 0;
 
-	public TextItem(Context ctx, String name) {
+	public TextItem(MaterialSettingsFragment ctx, String name) {
 		super(ctx, name);
 	}
 
