@@ -1,5 +1,6 @@
 # MaterialSettings
 MaterialSettings - small library to create settings activity
+Rebuilding library based on a fragment...
 
 [![Android app on Google Play](https://developer.android.com/images/brand/en_app_rgb_wo_45.png)](https://play.google.com/store/apps/details?id=com.wt.sampleapp)
 
