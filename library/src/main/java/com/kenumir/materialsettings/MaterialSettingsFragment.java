@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import java.util.Map;
 /**
  * Created by Kenumir on 2015-03-15.
  */
-public abstract class MaterialSettingsFragment extends Fragment {
+public class MaterialSettingsFragment extends Fragment {
 
 	public static enum ContentFrames {
 		FRAME_TOP(0),
@@ -36,8 +37,6 @@ public abstract class MaterialSettingsFragment extends Fragment {
 			return this.id;
 		}
 	}
-
-	private static String SAVE_PREFIX = "SSI_";
 
 	private LinearLayout material_settings_content;
 	private Toolbar toolbar;
@@ -65,63 +64,6 @@ public abstract class MaterialSettingsFragment extends Fragment {
 		mStorageInterface = initStorageInterface();
 
 		return root;
-	}
-
-	@Override
-	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-
-		if (savedInstanceState != null) {
-			for(String key : savedInstanceState.keySet()) {
-				if (key.startsWith(SAVE_PREFIX)) {
-					String keyName = key.substring(SAVE_PREFIX.length());
-					Object value = savedInstanceState.get(key);
-					//Log.i("tests", "k: " + key + " k2: " + keyName  +", t=" + value.getClass().getName() + ", v=" + value);
-					if (value instanceof String) {
-						mStorageInterface.save(keyName, (String) value);
-					} else if (value instanceof Integer) {
-						mStorageInterface.save(keyName, (Integer) value);
-					} else if (value instanceof Float) {
-						mStorageInterface.save(keyName, (Float) value);
-					} else if (value instanceof Long) {
-						mStorageInterface.save(keyName, (Long) value);
-					} else if (value instanceof Boolean) {
-						mStorageInterface.save(keyName, (Boolean) value);
-					} else {
-						mStorageInterface.save(keyName, value.toString());
-					}
-				}
-			}
-		}
-	}
-
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		StorageInterface si = getStorageInterface();
-		if (si instanceof SimpleStorageInterface) {
-			saveAll();
-			Map<String, ?> all = ((SimpleStorageInterface) si).getAll();
-			if (all.size() > 0) {
-				// save to bundle
-				for(String key : all.keySet()) {
-					Object value = all.get(key);
-					if (value instanceof String) {
-						outState.putString(SAVE_PREFIX + key, (String) value);
-					} else if (value instanceof Integer) {
-						outState.putInt(SAVE_PREFIX + key, (Integer) value);
-					} else if (value instanceof Float) {
-						outState.putFloat(SAVE_PREFIX + key, (Float) value);
-					} else if (value instanceof Long) {
-						outState.putString(SAVE_PREFIX + key, (String) value);
-					} else if (value instanceof Boolean) {
-						outState.putBoolean(SAVE_PREFIX + key, (Boolean) value);
-					} else {
-						outState.putString(SAVE_PREFIX + key, value.toString());
-					}
-				}
-			}
-		}
-		super.onSaveInstanceState(outState);
 	}
 
 	public FrameLayout getContentFrame(ContentFrames frame) {
@@ -153,5 +95,11 @@ public abstract class MaterialSettingsFragment extends Fragment {
 		return mStorageInterface;
 	}
 
-	public abstract StorageInterface initStorageInterface();
+	public StorageInterface initStorageInterface(){
+		if (getActivity() != null && (getActivity() instanceof MaterialSettingsActivity)) {
+			return ((MaterialSettingsActivity) getActivity()).initStorageInterface();
+		} else {
+			return null;
+		}
+	}
 }
